@@ -15,9 +15,9 @@
   </div>
   <div class="container2">
     <div class="add">
-      <p>Item Name: <input type="text" v-model="itemName" required></p>
-      <p>Item Category: <input type="text" v-model="itemCategory" placeholder="Other"></p>
-      <p>Item Price: <input type="number" v-model="itemPrice" required></p>
+      <p>Item Name: <input type="text" v-model="itemName" required :disabled="!budgetSet"></p>
+      <p>Item Category: <input type="text" v-model="itemCategory" placeholder="Other" :disabled="!budgetSet"></p>
+      <p>Item Price: <input type="number" v-model="itemPrice" required :disabled="!budgetSet"></p>
       <p><button class="addd" @click="addItem" :disabled="!budgetSet">ADD</button></p>
     </div>
   </div>
@@ -192,6 +192,10 @@
   input {
     margin-right: 10px;
     width: 40%;
+  }
+
+  input:disabled {
+    cursor: not-allowed;
   }
 
   table {
